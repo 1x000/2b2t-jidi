@@ -25,7 +25,7 @@ jobs:
       id: build
       run: |
         mkdir -p bin
-        GOOS=linux GOARCH=arm64 go build -v -o bin/myapp_linux_arm64
+        GOOS=linux GOARCH=arm64 CGO_ENABLED=1 go build -v -o bin/myapp_linux_arm64
         echo "::set-output name=binary::bin/myapp_linux_arm64"
 
     - name: Test
